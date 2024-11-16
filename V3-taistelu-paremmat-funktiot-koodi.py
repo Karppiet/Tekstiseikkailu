@@ -14,9 +14,16 @@ def intro():
     name = input("Kerro minulle nimesi: ")
     time.sleep(1)
     print(f"Tervehdys {name}. Olillesi lankeaa raskas paino.")
-    time.sleep(2)
+    time.sleep(1)
     print(f"{name}, tehtäväsi on päihittää kylääsi uhkaava hirviö.")
-    time.sleep(2)
+    time.sleep(1)
+    print("Hirviö on sulkenut itsensä vuoren päälliseen linnakkeeseen, josta sen vaikutusvalta ja myrkyllinen aura vaikuttaa maailmaan ympärilläsi.")
+    time.sleep(1)
+    print(f"{name}. Tehtäväsi tulee olemaan yksinäinen ja vaikea.")
+    time.sleep(1)
+    print(f"Matkastasi tulee pitkä. Kantamustesi lisäksi voit ottaa vain yhden aseen.")
+    time.sleep(1)
+    print(f"Olet molemmilla yhtä taitava, mutta ne antavat sinulle eri lähestymistavan matkaasi. Jousi ja nuolikotelo, vai miekka ja kilpi?")
     return name
 
 # Funktio: aseen valinta
@@ -33,6 +40,19 @@ def weapon_choice(name):
         print("Valitsit miekan. Se antaa sinulle kestävyyttä lähitaisteluun!")
     time.sleep(2)
     return player, weapon
+
+def linnakkeen_tarinankerronta(name):
+    print(f"Saavut linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnake on hiljainen ja kolkko.")
+    time.sleep(1)
+    print(f"Kuulet hirviön karjunnan. Se on lähellä.")
+    time.sleep(1)
+    print("Hirviö: 'Tunnen sinut, ihminen. Olet tullut lopettamaan minut. Mutta minä en aio antaa sinun tehdä sitä. Mikä on nimesi, jonka voin kirjoittaa hautakiveesi?'")
+    time.sleep(1)
+    print(f"{name}: 'Minun nimeni on {name}. Olen tullut vapauttamaan meidät vallastasi, hirviö.'")
+    time.sleep(1)
+    print(f"Hirviö: 'Sinä olet rohkea, {name}. Mutta rohkeus ei riitä. Näytä minulle, mitä sinulla on mielessäsi.'")
+    time.sleep(1)
+    print("Hirviö hyökkää!")
 
 # Funktio: yhden taistelukierroksen suorittaminen
 def combat_round(player, monster, weapon, monster_distance):
@@ -67,7 +87,7 @@ def combat_round(player, monster, weapon, monster_distance):
     return monster_distance
 
 # Funktio: pelin pääsilmukka
-def battle(player, monster):
+def battle(player, monster, weapon):
     monster_distance = 10
     while monster.health > 0 and player.health > 0:
         monster_distance = combat_round(player, monster, weapon, monster_distance)
@@ -83,7 +103,8 @@ def main():
     name = intro()  # Pelaajan nimi
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
-    battle(player, monster)  # Aloita taistelu
+    linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
+    battle(player, monster, weapon)  # Aloita taistelu (lisätty weapon)
 
 # Suoritetaan pääohjelma
 if __name__ == "__main__":
