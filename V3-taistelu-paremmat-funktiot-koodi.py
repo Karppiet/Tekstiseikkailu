@@ -8,7 +8,7 @@ class Character:
         self.damage = damage
 
 # Funktio: pelin intro
-def intro():
+def intro(name):
     print("Olet tämän seikkailun päähenkilö.")
     time.sleep(1)
     name = input("Kerro minulle nimesi: ")
@@ -87,7 +87,7 @@ def combat_round(player, monster, weapon, monster_distance):
     return monster_distance
 
 # Funktio: pelin pääsilmukka
-def battle(player, monster, weapon):
+def battle(player, monster, weapon, monster_distance):
     monster_distance = 10
     while monster.health > 0 and player.health > 0:
         monster_distance = combat_round(player, monster, weapon, monster_distance)
@@ -104,7 +104,7 @@ def main():
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
-    battle(player, monster, weapon)  # Aloita taistelu (lisätty weapon)
+    battle(player, monster, weapon, monster_distance)  # Aloita taistelu
 
 # Suoritetaan pääohjelma
 if __name__ == "__main__":

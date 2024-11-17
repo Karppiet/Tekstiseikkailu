@@ -75,16 +75,19 @@ def ruletti():
 def valinta():
 
     while True:
-        valinta = input("Edessä siintää metsä, menetkö sinne vai siirryt rannikolle? Vastaa joko m tai r ")
+        valinta = input("Edessä siintää metsä, menetkö sinne vai siirrytkö rannikolle? Vastaa joko m tai r ")
         # jos valinta m eli metsä pelataan rulettia
         if valinta == "m":
-            print("Menet metsään")
+            print("Päätät suunnata metsään.")
             sleep(3)
-            print("Näet metsän laidalla heinikon...")
+            print("Kuljet tiheässä metsässä taistellen eteenpäin aluskasvillisuuden läpi.")
             sleep(2)
-            print("Heinikossa näkyy jotain, muttet tiedä tarkalleen mitä..")
-            print("Mutta aiot ottaa selvää..")
+            print("Näet edessäsi jotain, joka kiinnittää huomiosi.")
+            print("Pöytä, jossa on revolveri ja kuusi luotia.")
             sleep(3)
+            print("Puun takaa kuulet äänen, joka sanoo: 'Tervetuloa pelaamaan venäläistä rulettia!'")
+            sleep(2)
+            print("'Jos voitat, annan sinulle paremmat mahdollisuudet selvitä matkastasi.'")
             tulos = ruletti()
     # jos tulee voitto saadaan salasana sekä voitot
             if tulos:
@@ -95,7 +98,9 @@ def valinta():
      
             #jos valinta r eli rannikko mennään rannikolle ja poistutaan loopista    
         elif valinta == "r":
-            print("Siirryt rannikolle")
+            print("Päätät suunnata rannikolle.")
+            sleep(3)
+            print("Kävelet pitkin hiekkarantaa ja kuulet vain meren kohinaa ja lokkien huutoja.")
             sana = "LOPPU"
             print(30* "*")
             print("*"+ sana.center(28, " ")+"*")
