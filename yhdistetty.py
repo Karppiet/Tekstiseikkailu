@@ -26,6 +26,7 @@ def hirsipuu():
 
         if '*' not in lista: # tsekataan kun lista ei sisällä enää * merkkejä
             print("Onnittelut! Olet arvannut oikein!")
+            print("Salasanasi linnakkeeseen on makkaravoileipä. Muista se!")
         
         valitse = input("Haluatko arvata sanan? k/e: ")
         # jos valitsee k arvataan sana
@@ -146,7 +147,7 @@ def valinta():
             print("Valitse joko r(rannikko) tai m(metsä)")
 
 # Hahmoluokka
-class Character:
+class Character: 
     def __init__(self, name, health, damage):
         self.name = name
         self.health = health
@@ -175,7 +176,7 @@ def intro():
 def weapon_choice(name):
     weapon = ""
     while weapon not in ["jousi", "miekka"]:
-        weapon = input("Valitse aseesi kirjoittamalla 'jousi' tai 'miekka': ").lower()
+        weapon = input("Valitse aseesi kirjoittamalla 'jousi' tai 'miekka': ")
 
     if weapon == "jousi":
         player = Character(name, health=6, damage=6)
@@ -202,9 +203,11 @@ def linnakkeen_tarinankerronta(name):
 def linnake_salasana():
     print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
     time.sleep(1)
-    salasana = input("Anna löytämäsi salanasana: ")
+    salasana = ""
 
-    if salasana == "makkaravoileipä":
+    while salasana != "makkaravoileipä":
+        salasana = input("Anna löytämäsi salasana: ")
+    else:
         print("Salasana on oikein. Portti aukeaa.")
 
 # Funktio: yhden taistelukierroksen suorittaminen
@@ -256,13 +259,13 @@ def battle(player, monster, weapon):
         print(30* "*")
         
 
-# Pääohjelman suoritus
+# Pääohjelman rakentaminen funktioista
 def main():
     name = intro()  # Pelaajan nimi
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
     valinta()
-    linnake_salasana():
+    linnake_salasana()  # Linnakkeen salasana
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
     battle(player, monster, weapon)  # Aloita taistelu (lisätty weapon)
 
