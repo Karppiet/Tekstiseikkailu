@@ -130,6 +130,7 @@ def valinta():
                 break
             else:
                 print("Hävisit pelin")
+                break
                 
      
             #jos valinta r eli rannikko mennään rannikolle ja hirsipuu peli alkaa    
