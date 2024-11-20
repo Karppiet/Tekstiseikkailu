@@ -90,7 +90,7 @@ def ruletti():
                     palkinto = summa * 10       # jos kierros on 4 eli viimeinen pelaaja voittaa pelin ja poistutaan funktiosta palauttaen salasanan
                     voitot += palkinto
                     print(f"Selvisit ruletista! Kokonaisvoitot {voitot}")
-                    return "makkaravoilepä", voitot
+                    return "makkaravoileipä", voitot
                 else: 
                     palkinto = summa * 2
 
@@ -187,9 +187,9 @@ def weapon_choice(name):
     return player, weapon
 
 def linnakkeen_tarinankerronta(name):
-    print(f"Saavut linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnake on hiljainen ja kolkko.")
+    print(f"Astut portista linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnakkeen piha-alue on hiljainen ja kolkko.")
     time.sleep(1)
-    print(f"Kuulet hirviön karjunnan. Se on lähellä.")
+    print(f"Kuulet hirviön karjunnan. Se tuijottaa sinua ikkunasta, ennenkuin hyppää eteesi piha-alueella, valtavaa taistelukirvestä heilutellen.")
     time.sleep(1)
     print("Hirviö: 'Tunnen sinut, ihminen. Olet tullut lopettamaan minut. Mutta minä en aio antaa sinun tehdä sitä. Mikä on nimesi, jonka voin kirjoittaa hautakiveesi?'")
     time.sleep(1)
@@ -198,6 +198,14 @@ def linnakkeen_tarinankerronta(name):
     print(f"Hirviö: 'Sinä olet rohkea, {name}. Mutta rohkeus ei riitä. Näytä minulle, mitä sinulla on mielessäsi.'")
     time.sleep(1)
     print("Hirviö hyökkää!")
+
+def linnake_salasana():
+    print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
+    time.sleep(1)
+    salasana = input("Anna löytämäsi salanasana: ")
+
+    if salasana == "makkaravoileipä":
+        print("Salasana on oikein. Portti aukeaa.")
 
 # Funktio: yhden taistelukierroksen suorittaminen
 def combat_round(player, monster, weapon, monster_distance):
@@ -254,6 +262,7 @@ def main():
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
     valinta()
+    linnake_salasana():
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
     battle(player, monster, weapon)  # Aloita taistelu (lisätty weapon)
 
