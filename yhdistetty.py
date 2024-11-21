@@ -209,22 +209,7 @@ def weapon_choice(name):
     time.sleep(2)
     return player, weapon
 
-def linnakkeen_tarinankerronta(name):
-    print(f"Astut portista linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnakkeen piha-alue on hiljainen ja kolkko.")
-    time.sleep(2)
-    print(f"Kuulet hirviön karjunnan. Se tuijottaa sinua ikkunasta, ennenkuin hyppää eteesi piha-alueella, valtavaa taistelukirvestä heilutellen.")
-    time.sleep(2)
-    print("Hirviö: 'Tunnen sinut, ihminen. Olet tullut lopettamaan minut. Mutta minä en aio antaa sinun tehdä sitä. Mikä on nimesi, jonka voin kirjoittaa hautakiveesi?'")
-    time.sleep(2)
-    print(f"{name}: 'Minun nimeni on {name}. Olen tullut vapauttamaan meidät vallastasi, hirviö.'")
-    time.sleep(2)
-    print(f"Hirviö: 'Sinä olet rohkea, {name}. Mutta rohkeus ei riitä. Näytä minulle, mitä sinulla on mielessäsi.'")
-    time.sleep(2)
-    print("Hirviö hyökkää!")
-
-def linnake_salasana():
-    salasana = ""
-    yritys = 0
+def linnakkeen_salasanatarinankerronta(name):
     print("Koettelemuksesi ovat tuoneet sinut ylös vuoren rinnettä, jossa hirviön linnake sijaitsee.")
     time.sleep(2)
     print("Väsymys koettelee raajojasi, mutta et anna sen hidastaa sinua.")
@@ -232,6 +217,10 @@ def linnake_salasana():
     print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
     time.sleep(2)
 
+def linnake_salasana():
+    salasana = ""
+    yritys = 0
+    
     while salasana != "makkaravoileipä":
         salasana = input("Anna löytämäsi salasana: ")
         yritys += 1
@@ -245,6 +234,38 @@ def linnake_salasana():
     else:
         print("Salasana on oikein. Portti aukeaa.")
 
+def linnakkeen_tarinankerronta(name):
+    print(f"Astut portista linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnakkeen piha-alue on hiljainen ja kolkko.")
+    time.sleep(2)
+    print(f"Kuulet hirviön karjunnan. Se tuijottaa sinua ikkunasta, ennenkuin hyppää eteesi piha-alueella, valtavaa taistelukirvestä heilutellen.")
+    time.sleep(2)
+    print("Hirviö: 'Tunnen sinut, ihminen. Olet tullut lopettamaan minut. Mutta minä en aio antaa sinun tehdä sitä. Mikä on nimesi, jonka voin kirjoittaa hautakiveesi?'")
+    time.sleep(2)
+    print(f"{name}: 'Minun nimeni on {name}. Olen tullut vapauttamaan meidät vallastasi, hirviö.'")
+    time.sleep(2)
+    print(f"Hirviö: 'Sinä olet rohkea, {name}. Mutta rohkeus ei riitä. Näytä minulle, mitä sinulla on mielessäsi.'")
+    time.sleep(2)
+    print("Hirviö hyökkää!")
+
+# Funktio: pelin pääsilmukka
+def battle(player, monster, weapon, monster_distance):
+    while monster.health > 0 and player.health > 0:
+        monster_distance = combat_round(player, monster, weapon, monster_distance)
+    
+    # Tarkista voittaja
+    if player.health <= 0:
+        print(f"\n{player.name} on kaatunut taistelussa. Hirviö voitti.")
+        sana = "YRITÄ UUDELLEEN"
+        print(30* "*")
+        print("*"+ sana.center(28, " ")+"*")
+        print(30* "*")
+    else:
+        print(f"\nHirviö on kaadettu! {player.name} on sankari!")
+        sana = "LOPPU"
+        print(30* "*")
+        print("*"+ sana.center(28, " ")+"*")
+        print(30* "*")
+        
 # Funktio: yhden taistelukierroksen suorittaminen
 def combat_round(player, monster, weapon, monster_distance):
     print(f"\nHirviön etäisyys: {monster_distance} | Hirviön HP: {monster.health}")
@@ -277,26 +298,6 @@ def combat_round(player, monster, weapon, monster_distance):
 
     return monster_distance
 
-# Funktio: pelin pääsilmukka
-def battle(player, monster, weapon, monster_distance):
-    while monster.health > 0 and player.health > 0:
-        monster_distance = combat_round(player, monster, weapon, monster_distance)
-    
-    # Tarkista voittaja
-    if player.health <= 0:
-        print(f"\n{player.name} on kaatunut taistelussa. Hirviö voitti.")
-        sana = "YRITÄ UUDELLEEN"
-        print(30* "*")
-        print("*"+ sana.center(28, " ")+"*")
-        print(30* "*")
-    else:
-        print(f"\nHirviö on kaadettu! {player.name} on sankari!")
-        sana = "LOPPU"
-        print(30* "*")
-        print("*"+ sana.center(28, " ")+"*")
-        print(30* "*")
-        
-
 # Pääohjelman rakentaminen funktioista
 def main():
     name = intro()  # Pelaajan nimi
@@ -304,6 +305,7 @@ def main():
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
     monster_distance = random.randint(5, 20)  # Hirviön etäisyys
     valinta() # metsä vai rannikko
+    linnakkeen_salasanatarinankerronta(name)  # Linnakkeen salasanan tarinankerronta
     linnake_salasana()  # Linnakkeen salasana
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
     battle(player, monster, weapon, monster_distance)  # Aloita taistelu
