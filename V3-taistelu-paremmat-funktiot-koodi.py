@@ -8,7 +8,7 @@ class Character:
         self.damage = damage
 
 # Funktio: pelin intro
-def intro(name):
+def intro():
     print("Olet tämän seikkailun päähenkilö.")
     time.sleep(1)
     name = input("Kerro minulle nimesi: ")

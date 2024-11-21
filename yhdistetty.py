@@ -3,7 +3,7 @@ import random
 
 def hirsipuu():
     # lista sanoista
-    listasanoja = ['auto', 'kalmari', 'polkupyörä','substantiivi', 'arkeologinen']
+    listasanoja = ['näkinkenkä', 'kalmari', 'purjevene','pääkallo', 'hiekka']
 
     # arvotaan yksi sana listasta
     valittusana = random.choice(listasanoja)
@@ -114,20 +114,25 @@ def ruletti():
 def valinta():
 
     while True:
-        valinta = input("Edessä siintää metsä, menetkö sinne vai siirryt rannikolle? Vastaa joko m tai r ")
+        print("Edessäsi on tienhaara. Oikealla siintää tumman vihreä metsä, polun kaartuessa pois näkyviltä.")
+        time.sleep(2)
+        print("Vasemmalla kohisee meri, ja näet rannikon hiekkaa.")
+        time.sleep(2)
+        valinta = input("Lähdetkö metsään, vai siirrytkö rannikolle? Vastaa joko m tai r ")
+
         # jos valinta m eli metsä pelataan rulettia
         if valinta == "m":
             print("Päätät suunnata metsään.")
-            sleep(2)
+            time.sleep(2)
             print("Kuljet tiheässä metsässä taistellen eteenpäin aluskasvillisuuden läpi.")
-            sleep(2)
+            time.sleep(2)
             print("Näet edessäsi jotain, joka kiinnittää huomiosi.")
             print("Pöytä, jossa on revolveri ja kuusi luotia.")
-            sleep(2)
-            print("Puun takaa kuulet äänen, joka sanoo: 'Tervetuloa pelaamaan venäläistä rulettia.'")
-            sleep(2)
+            time.sleep(2)
+            print("Puun takaa kuulet äänen, joka sanoo: 'Uskallatko haastaa pelkosi?'")
+            time.sleep(2)
             print("'Jos voitat, annan sinulle salasanan hirviön linnakkeeseen.'")
-            sleep(2)
+            time.sleep(2)
             print("Eteesi astuu punasilmäinen viikatemies.")
             tulos = ruletti()
             
@@ -142,11 +147,19 @@ def valinta():
      
             #jos valinta r eli rannikko mennään rannikolle ja hirsipuu peli alkaa    
         elif valinta == "r":
-            print("Siirryt rannikolle")
-            print("Näet kaukana hirsipuun..")
+            print("Käännyt vasemmalle ja suuntaat rannikolle.")
             time.sleep(2)
-            print("Kävelet hirsipuun luokse")
+            print("Kävelet pitkin hiekkarantaa rauhalliseen tahtiin. Melkein unohdat hirviön ja huolesi, kuunnellessasi vain meren kohinaa ja lokkien huutoja.")
             time.sleep(2)
+            print("Heräät ajatuksistasi, kun huomaat edessä siintävän hirsipuun.")
+            time.sleep(2)
+            print("Kävelet rakennelman luokse. Se on vanha ja lahonnut.")
+            time.sleep(2)
+            print("'Tervetuloa hirsipuuhun', kuulet äänen sanovan.")
+            time.sleep(2)
+            print("'Tässä pelissä sinun tulee arvata sana. Jos arvaat oikein, annan sinulle salasanan hirviön linnakkeeseen.'")
+            time.sleep(2)
+            print("'Jos arvaat väärin', ääni hihittää saaden mielipuolisen vivahteen ääneensä, 'hirtän sinut.'")
             hirsipuu()
             break
         else:
@@ -210,9 +223,17 @@ def linnake_salasana():
     print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
     time.sleep(2)
     salasana = ""
+    yritys = 0
 
     while salasana != "makkaravoileipä":
         salasana = input("Anna löytämäsi salasana: ")
+        yritys += 1
+        if yritys >= 3:
+            print("Olet ylittänyt yritysten määrän. Portti ei aukea.")
+            time.sleep(2)
+            print("Päätät palata takaisin.")
+            time.sleep(2)
+            valinta()
     else:
         print("Salasana on oikein. Portti aukeaa.")
 
@@ -250,7 +271,6 @@ def combat_round(player, monster, weapon, monster_distance):
 
 # Funktio: pelin pääsilmukka
 def battle(player, monster, weapon, monster_distance):
-    monster_distance = random.randint(5, 20)
     while monster.health > 0 and player.health > 0:
         monster_distance = combat_round(player, monster, weapon, monster_distance)
     
@@ -274,10 +294,11 @@ def main():
     name = intro()  # Pelaajan nimi
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
+    monster_distance = random.randint(5, 20)  # Hirviön etäisyys
     valinta() # metsä vai rannikko
     linnake_salasana()  # Linnakkeen salasana
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
-    battle(player, monster, weapon, monster_distance)  # Aloita taistelu (lisätty weapon)
+    battle(player, monster, weapon, monster_distance)  # Aloita taistelu
 
 # Suoritetaan pääohjelma
 if __name__ == "__main__":
