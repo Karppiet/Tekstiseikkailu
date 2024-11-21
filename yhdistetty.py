@@ -112,12 +112,12 @@ def ruletti():
             break
 
 def valinta():
-
+    print("Edessäsi on tienhaara. Oikealla siintää tumman vihreä metsä, polun kaartuessa pois näkyviltä.")
+    time.sleep(2)
+    print("Vasemmalla kohisee meri, ja näet rannikon hiekkaa.")
+    time.sleep(2)
+    
     while True:
-        print("Edessäsi on tienhaara. Oikealla siintää tumman vihreä metsä, polun kaartuessa pois näkyviltä.")
-        time.sleep(2)
-        print("Vasemmalla kohisee meri, ja näet rannikon hiekkaa.")
-        time.sleep(2)
         valinta = input("Lähdetkö metsään, vai siirrytkö rannikolle? Vastaa joko metsä tai rannikko: ")
 
         # jos valinta m eli metsä pelataan rulettia
