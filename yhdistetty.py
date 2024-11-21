@@ -56,9 +56,9 @@ def ruletti():
 
     # While loopin sisällä valitaan pelataanko vai ei
     while True:    
-        valinta = input(f"Valitse pelaatko vai jänistätkö: p/j ? (kierros {laskuri}) ")
+        pelaa = input(f"Valitse pelaatko vai jänistätkö: p/j ? (kierros {laskuri}) ")
 
-        if valinta == "p":  
+        if pelaa == "p":  
             while True:
                 
                 try:
@@ -108,7 +108,7 @@ def ruletti():
             laskuri += 1
         
         # Jos valitaan j poistutaan pelistä 
-        elif valinta == "j": 
+        elif pelaa == "j": 
             print("Et tainnut uskaltaa...")
             valinta()
             break
