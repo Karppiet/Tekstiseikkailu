@@ -35,6 +35,7 @@ def hirsipuu():
             # jos sana on oikein onnitellaan
             if sananarvaus == valittusana:
                 print(f"Onnittelut! Vastaus {sananarvaus} on oikein")
+                print("Salasanasi linnakkeeseen on makkaravoileipä. Muista se!")
                 break
             else: # jos väärin palataan arvaamaan kirjainta
                 print(f"Valitettavasti vastaus {sananarvaus} on väärä")
@@ -73,7 +74,7 @@ def ruletti():
          
             # Jos luoti ja luku täsmäävät pelaaja häviää ja poistutaan loopista
             if luoti == arvonta:
-                print("BÄNG!, hävisit pelin")
+                print("BÄNG!")
                 break
 
             # Muuten pelaaja voitti tämän kierroksen
@@ -90,8 +91,9 @@ def ruletti():
                 elif laskuri == 4: 
                     palkinto = summa * 10       # jos kierros on 4 eli viimeinen pelaaja voittaa pelin ja poistutaan funktiosta palauttaen salasanan
                     voitot += palkinto
-                    print(f"Selvisit ruletista! Kokonaisvoitot {voitot}")
-                    return "makkaravoileipä", voitot
+                    salasana = "makkaravoileipä"
+                    print(f"Selvisit ruletista! Salasanasi on {salasana}. Voitit {voitot} kolikkoa!")
+                    return salasana, voitot
                 else: 
                     palkinto = summa * 2
 
@@ -115,19 +117,23 @@ def valinta():
         valinta = input("Edessä siintää metsä, menetkö sinne vai siirryt rannikolle? Vastaa joko m tai r ")
         # jos valinta m eli metsä pelataan rulettia
         if valinta == "m":
-            print("Menet metsään")
-            time.sleep(3)
-            print("Näet metsän laidalla heinikon...")
-            time.sleep(2)
-            print("Heinikossa näkyy jotain, muttet tiedä tarkalleen mitä..")
-            print("Mutta aiot ottaa selvää..")
-            print("Näet viikatemiehen punaisine silmineen")
-            time.sleep(3)
+            print("Päätät suunnata metsään.")
+            sleep(2)
+            print("Kuljet tiheässä metsässä taistellen eteenpäin aluskasvillisuuden läpi.")
+            sleep(2)
+            print("Näet edessäsi jotain, joka kiinnittää huomiosi.")
+            print("Pöytä, jossa on revolveri ja kuusi luotia.")
+            sleep(2)
+            print("Puun takaa kuulet äänen, joka sanoo: 'Tervetuloa pelaamaan venäläistä rulettia.'")
+            sleep(2)
+            print("'Jos voitat, annan sinulle salasanan hirviön linnakkeeseen.'")
+            sleep(2)
+            print("Eteesi astuu punasilmäinen viikatemies.")
             tulos = ruletti()
             
     # jos tulee voitto saadaan salasana sekä voitot
             if tulos:
-                print(f"Voitit pelin, tässä salasanasi sekä voitot: {tulos}") 
+                print(f"Voitit pelin: {tulos}") 
                 break
             else:
                 print("Hävisit pelin")
@@ -140,7 +146,7 @@ def valinta():
             print("Näet kaukana hirsipuun..")
             time.sleep(2)
             print("Kävelet hirsipuun luokse")
-            time.sleep(1)
+            time.sleep(2)
             hirsipuu()
             break
         else:
@@ -156,19 +162,19 @@ class Character:
 # Funktio: pelin intro
 def intro():
     print("Olet tämän seikkailun päähenkilö.")
-    time.sleep(1)
+    time.sleep(2)
     name = input("Kerro minulle nimesi: ")
-    time.sleep(1)
+    time.sleep(2)
     print(f"Tervehdys {name}. Olillesi lankeaa raskas paino.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"{name}, tehtäväsi on päihittää kylääsi uhkaava hirviö.")
-    time.sleep(1)
+    time.sleep(2)
     print("Hirviö on sulkenut itsensä vuoren päälliseen linnakkeeseen, josta sen vaikutusvalta ja myrkyllinen aura vaikuttaa maailmaan ympärilläsi.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"{name}. Tehtäväsi tulee olemaan yksinäinen ja vaikea.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"Matkastasi tulee pitkä. Kantamustesi lisäksi voit ottaa vain yhden aseen.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"Olet molemmilla yhtä taitava, mutta ne antavat sinulle eri lähestymistavan matkaasi. Jousi ja nuolikotelo, vai miekka ja kilpi?")
     return name
 
@@ -189,20 +195,20 @@ def weapon_choice(name):
 
 def linnakkeen_tarinankerronta(name):
     print(f"Astut portista linnakkeeseen. Näet ympärilläsi vain tyhjyyttä ja kylmyyttä. Linnakkeen piha-alue on hiljainen ja kolkko.")
-    time.sleep(1)
+    time.sleep(2)
     print(f"Kuulet hirviön karjunnan. Se tuijottaa sinua ikkunasta, ennenkuin hyppää eteesi piha-alueella, valtavaa taistelukirvestä heilutellen.")
-    time.sleep(1)
+    time.sleep(2)
     print("Hirviö: 'Tunnen sinut, ihminen. Olet tullut lopettamaan minut. Mutta minä en aio antaa sinun tehdä sitä. Mikä on nimesi, jonka voin kirjoittaa hautakiveesi?'")
-    time.sleep(1)
+    time.sleep(2)
     print(f"{name}: 'Minun nimeni on {name}. Olen tullut vapauttamaan meidät vallastasi, hirviö.'")
-    time.sleep(1)
+    time.sleep(2)
     print(f"Hirviö: 'Sinä olet rohkea, {name}. Mutta rohkeus ei riitä. Näytä minulle, mitä sinulla on mielessäsi.'")
-    time.sleep(1)
+    time.sleep(2)
     print("Hirviö hyökkää!")
 
 def linnake_salasana():
     print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
-    time.sleep(1)
+    time.sleep(2)
     salasana = ""
 
     while salasana != "makkaravoileipä":
@@ -214,43 +220,47 @@ def linnake_salasana():
 def combat_round(player, monster, weapon, monster_distance):
     print(f"\nHirviön etäisyys: {monster_distance} | Hirviön HP: {monster.health}")
     print(f"{player.name} HP: {player.health}")
-    time.sleep(1)
+    time.sleep(2)
     
     input("Paina enteriä jatkaaksesi seuraavaa vuoroa...")
     
     if weapon == "jousi":
         print("Ammut nuolen!")
-        time.sleep(1)
+        time.sleep(2)
         monster.health -= player.damage
         monster_distance -= 2
         if monster_distance <= 5:
             print("Hirviö hyökkää!")
-            time.sleep(1)
+            time.sleep(2)
             player.health -= monster.damage
     elif weapon == "miekka":
         if monster_distance > 5:
             print("Olet liian kaukana! Lähestyt hirviötä.")
-            time.sleep(1)
+            time.sleep(2)
             monster_distance -= 2
         else:
             print("Hyökkäät miekkasi kanssa!")
-            time.sleep(1)
+            time.sleep(2)
             monster.health -= player.damage
             print("Hirviö hyökkää!")
-            time.sleep(1)
+            time.sleep(2)
             player.health -= monster.damage
 
     return monster_distance
 
 # Funktio: pelin pääsilmukka
-def battle(player, monster, weapon):
-    monster_distance = 10
+def battle(player, monster, weapon, monster_distance):
+    monster_distance = random.randint(5, 20)
     while monster.health > 0 and player.health > 0:
         monster_distance = combat_round(player, monster, weapon, monster_distance)
     
     # Tarkista voittaja
     if player.health <= 0:
         print(f"\n{player.name} on kaatunut taistelussa. Hirviö voitti.")
+        sana = "YRITÄ UUDELLEEN"
+        print(30* "*")
+        print("*"+ sana.center(28, " ")+"*")
+        print(30* "*")
     else:
         print(f"\nHirviö on kaadettu! {player.name} on sankari!")
         sana = "LOPPU"
@@ -264,10 +274,10 @@ def main():
     name = intro()  # Pelaajan nimi
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
-    valinta()
+    valinta() # metsä vai rannikko
     linnake_salasana()  # Linnakkeen salasana
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
-    battle(player, monster, weapon)  # Aloita taistelu (lisätty weapon)
+    battle(player, monster, weapon, monster_distance)  # Aloita taistelu (lisätty weapon)
 
 # Suoritetaan pääohjelma
 if __name__ == "__main__":
