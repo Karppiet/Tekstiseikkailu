@@ -75,6 +75,7 @@ def ruletti():
             # Jos luoti ja luku täsmäävät pelaaja häviää ja poistutaan loopista
             if luoti == arvonta:
                 print("BÄNG!")
+                valinta()
                 break
 
             # Muuten pelaaja voitti tämän kierroksen
@@ -109,6 +110,7 @@ def ruletti():
         # Jos valitaan j poistutaan pelistä 
         elif valinta == "j": 
             print("Et tainnut uskaltaa...")
+            valinta()
             break
 
 def valinta():
