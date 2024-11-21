@@ -194,6 +194,7 @@ def intro():
     print(f"Matkastasi tulee pitkä. Kantamustesi lisäksi voit ottaa vain yhden aseen.")
     time.sleep(2)
     print(f"Olet molemmilla yhtä taitava, mutta ne antavat sinulle eri lähestymistavan matkaasi. Jousi ja nuolikotelo, vai miekka ja kilpi?")
+    time.sleep(2)
     return name
 
 # Funktio: aseen valinta
