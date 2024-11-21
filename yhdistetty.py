@@ -26,7 +26,7 @@ def hirsipuu():
 
         if '*' not in lista: # tsekataan kun lista ei sisällä enää * merkkejä
             print("Onnittelut! Olet arvannut oikein!")
-            print("Salasanasi linnakkeeseen on makkaravoileipä. Muista se!")
+            print("Salasana hirviön linnakkeeseen on makkaravoileipä. Muista se!")
         
         valitse = input("Haluatko arvata sanan? k/e: ")
         # jos valitsee k arvataan sana
@@ -35,7 +35,7 @@ def hirsipuu():
             # jos sana on oikein onnitellaan
             if sananarvaus == valittusana:
                 print(f"Onnittelut! Vastaus {sananarvaus} on oikein")
-                print("Salasanasi linnakkeeseen on makkaravoileipä. Muista se!")
+                print("Salasana hirviön linnakkeeseen on makkaravoileipä. Muista se!")
                 break
             else: # jos väärin palataan arvaamaan kirjainta
                 print(f"Valitettavasti vastaus {sananarvaus} on väärä")
@@ -79,7 +79,7 @@ def ruletti():
 
             # Muuten pelaaja voitti tämän kierroksen
             else:  
-                onnittelu = "Onneksi olkoon voitit"
+                onnittelu = "Onneksi olkoon, voitit kierroksen"
                 print("Click")
                 palkinto = 0         
 
@@ -92,7 +92,7 @@ def ruletti():
                     palkinto = summa * 10       # jos kierros on 4 eli viimeinen pelaaja voittaa pelin ja poistutaan funktiosta palauttaen salasanan
                     voitot += palkinto
                     salasana = "makkaravoileipä"
-                    print(f"Selvisit ruletista! Salasanasi on {salasana}. Voitit {voitot} kolikkoa!")
+                    print(f"Selvisit ruletista! Salasana hirviön linnaan on {salasana}. Lisäksi voitit {voitot} kolikkoa!")
                     return salasana, voitot
                 else: 
                     palkinto = summa * 2
@@ -118,15 +118,16 @@ def valinta():
         time.sleep(2)
         print("Vasemmalla kohisee meri, ja näet rannikon hiekkaa.")
         time.sleep(2)
-        valinta = input("Lähdetkö metsään, vai siirrytkö rannikolle? Vastaa joko m tai r ")
+        valinta = input("Lähdetkö metsään, vai siirrytkö rannikolle? Vastaa joko metsä tai rannikko: ")
 
         # jos valinta m eli metsä pelataan rulettia
-        if valinta == "m":
+        if valinta == "metsä":
             print("Päätät suunnata metsään.")
             time.sleep(2)
             print("Kuljet tiheässä metsässä taistellen eteenpäin aluskasvillisuuden läpi.")
             time.sleep(2)
             print("Näet edessäsi jotain, joka kiinnittää huomiosi.")
+            time.sleep(2)
             print("Pöytä, jossa on revolveri ja kuusi luotia.")
             time.sleep(2)
             print("Puun takaa kuulet äänen, joka sanoo: 'Uskallatko haastaa pelkosi?'")
@@ -134,19 +135,21 @@ def valinta():
             print("'Jos voitat, annan sinulle salasanan hirviön linnakkeeseen.'")
             time.sleep(2)
             print("Eteesi astuu punasilmäinen viikatemies.")
-            tulos = ruletti()
+            # tulos = 
+            ruletti()
+            break
             
-    # jos tulee voitto saadaan salasana sekä voitot
-            if tulos:
-                print(f"Voitit pelin: {tulos}") 
-                break
-            else:
-                print("Hävisit pelin")
-                break
+    #  jos tulee voitto saadaan salasana sekä voitot
+    #         if tulos:
+    #             print(f"Voitit pelin: {tulos}") 
+    #             break
+    #         else:
+    #             print("Hävisit pelin")
+    #             break
                 
      
             #jos valinta r eli rannikko mennään rannikolle ja hirsipuu peli alkaa    
-        elif valinta == "r":
+        elif valinta == "rannikko":
             print("Käännyt vasemmalle ja suuntaat rannikolle.")
             time.sleep(2)
             print("Kävelet pitkin hiekkarantaa rauhalliseen tahtiin. Melkein unohdat hirviön ja huolesi, kuunnellessasi vain meren kohinaa ja lokkien huutoja.")
@@ -163,7 +166,7 @@ def valinta():
             hirsipuu()
             break
         else:
-            print("Valitse joko r(rannikko) tai m(metsä)")
+            print("Valitse joko rannikko tai metsä")
 
 # Hahmoluokka
 class Character: 
@@ -201,7 +204,7 @@ def weapon_choice(name):
         player = Character(name, health=6, damage=6)
         print("Valitsit jousen. Se antaa sinulle vahvan etäedun!")
     elif weapon == "miekka":
-        player = Character(name, health=8, damage=4)
+        player = Character(name, health=10, damage=4)
         print("Valitsit miekan. Se antaa sinulle kestävyyttä lähitaisteluun!")
     time.sleep(2)
     return player, weapon
@@ -220,10 +223,14 @@ def linnakkeen_tarinankerronta(name):
     print("Hirviö hyökkää!")
 
 def linnake_salasana():
-    print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
-    time.sleep(2)
     salasana = ""
     yritys = 0
+    print("Koettelemuksesi ovat tuoneet sinut ylös vuoren rinnettä, jossa hirviön linnake sijaitsee.")
+    time.sleep(2)
+    print("Väsymys koettelee raajojasi, mutta et anna sen hidastaa sinua.")
+    time.sleep(2)
+    print("Saavut linnakkeen portille. Se on lukittu ja vaatii salasanan.")
+    time.sleep(2)
 
     while salasana != "makkaravoileipä":
         salasana = input("Anna löytämäsi salasana: ")
@@ -233,6 +240,7 @@ def linnake_salasana():
             time.sleep(2)
             print("Päätät palata takaisin.")
             time.sleep(2)
+            yritys = 0
             valinta()
     else:
         print("Salasana on oikein. Portti aukeaa.")
