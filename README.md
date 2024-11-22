@@ -2,7 +2,7 @@
 
 ## Miten käynnistän tekstiseikkailun?
 
-Tekstiseikkailu käynnistyy ajamalla tiedosto **yhdistetty.py** sen komentorivillä.
+Tekstiseikkailu käynnistyy ajamalla tiedosto **tekstiseikkailu.py** sen komentorivillä.
 
 ## Mistä tekstiseikkailussa on kysymys 
 
