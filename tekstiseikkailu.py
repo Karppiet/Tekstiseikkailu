@@ -44,40 +44,34 @@ def hirsipuu():
 def ruletti():
 
     print("Tervetuloa pelaamaan venäläistä rulettia!")
-
     # luodaan satunnainen luku luodille
     luoti = random.randint(1, 6) 
     # luoti = 1
-
     # alustetaan laskuri
     laskuri = 1 
     # alustetaan voitot
     voitot = 0
 
     # While loopin sisällä valitaan pelataanko vai ei
-    while True:    
+    while True:
+            
         pelaa = input(f"Valitse pelaatko vai jänistätkö: p/j ? (kierros {laskuri}) ")
 
         if pelaa == "p":  
-            while True:
-                
+            while True:               
                 try:
                     summa = int(input("Valitse panostettava summa väliltä 1-10: "))
-                    if summa in range(1,11): break
-                   
+                    if summa in range(1,11): break                 
                 # Jos panostettava summa ei ole numeroita annetaan virheilmoitus ja palataan kyselyyn    
                 except ValueError:
-                    print("Väärä muoto, syötä vain numeroita") 
-    
+                    print("Väärä muoto, syötä vain numeroita")    
             # arvotaan luku pelaajalla
-            arvonta = random.randint(1, 6)
-         
+            arvonta = random.randint(1, 6)       
             # Jos luoti ja luku täsmäävät pelaaja häviää ja poistutaan loopista
             if luoti == arvonta:
                 print("BÄNG!")
                 valinta()
                 break
-
             # Muuten pelaaja voitti tämän kierroksen
             else:  
                 onnittelu = "Onneksi olkoon, voitit kierroksen"
@@ -101,8 +95,6 @@ def ruletti():
             voitot += palkinto  # lisää voitot kokonaisvoittoihin
             print(f"{onnittelu} {palkinto}")
             print(f"Kokonaisvoitot: {voitot}")
-
-
 
             # kierrosten lisääminen        
             laskuri += 1
