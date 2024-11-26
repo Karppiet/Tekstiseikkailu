@@ -89,6 +89,7 @@ def ruletti():
                     salasana = "makkaravoileipä"
                     print(f"Selvisit ruletista! Salasana hirviön linnaan on {salasana}. Lisäksi voitit {voitot} kolikkoa!")
                     return salasana, voitot
+    
                 else: 
                     palkinto = summa * 2
 
