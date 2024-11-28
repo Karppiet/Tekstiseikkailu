@@ -48,7 +48,7 @@ def ruletti():
     print("Tervetuloa pelaamaan venäläistä rulettia!")
     # luodaan satunnainen luku luodille
     luoti = random.randint(1, 6) 
-    # luoti = 1
+    #luoti = 1
     # alustetaan laskuri
     laskuri = 1 
     # alustetaan voitot
@@ -62,13 +62,14 @@ def ruletti():
         if pelaa == "p":  
             while True:               
                 try:
-                    summa = int(input("Valitse panostettava summa väliltä 1-10: "))
+                    summa = int(input("Valitse panostettava summa väliltä 1-10 kolikkoa: "))
                     if summa in range(1,11): break                 
                 # Jos panostettava summa ei ole numeroita annetaan virheilmoitus ja palataan kyselyyn    
                 except ValueError:
                     print("Väärä muoto, syötä vain numeroita")    
             # arvotaan luku pelaajalla
-            arvonta = random.randint(1, 6)       
+            arvonta = random.randint(1, 6)
+            # arvonta = 2      
             # Jos luoti ja luku täsmäävät pelaaja häviää ja poistutaan loopista
             if luoti == arvonta:
                 print("BÄNG!")
@@ -76,7 +77,7 @@ def ruletti():
                 break
             # Muuten pelaaja voitti tämän kierroksen
             else:  
-                onnittelu = "Onneksi olkoon, voitit kierroksen"
+                onnittelu = "Onneksi olkoon! Voitit"
                 print("Click")
                 palkinto = 0         
 
@@ -90,14 +91,15 @@ def ruletti():
                     voitot += palkinto
                     salasana = "makkaravoileipä"
                     print(f"Selvisit ruletista! Salasana hirviön linnaan on {salasana}. Lisäksi voitit {voitot} kolikkoa!")
-                    return salasana, voitot
+                    # return salasana, voitot
+                    break
     
                 else: 
                     palkinto = summa * 2
 
             voitot += palkinto  # lisää voitot kokonaisvoittoihin
-            print(f"{onnittelu} {palkinto}")
-            print(f"Kokonaisvoitot: {voitot}")
+            print(f"{onnittelu} {palkinto} kolikkoa")
+            print(f"Kokonaisvoitot: {voitot} kolikkoa")
 
             # kierrosten lisääminen        
             laskuri += 1
