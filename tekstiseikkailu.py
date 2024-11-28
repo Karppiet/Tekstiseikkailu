@@ -300,7 +300,7 @@ def main():
     name = intro()  # Pelaajan nimi
     player, weapon = weapon_choice(name)  # Pelaajan hahmo ja ase
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
-    monster_distance = random.randint(5, 20)  # Hirviön etäisyys
+    monster_distance = random.randint(5, 15)  # Hirviön etäisyys
     valinta() # metsä vai rannikko
     linnakkeen_salasanatarinankerronta(name)  # Linnakkeen salasanan tarinankerronta
     linnake_salasana()  # Linnakkeen salasana
