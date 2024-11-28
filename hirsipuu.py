@@ -25,7 +25,8 @@ def hirsipuu():
         print("".join(lista)) # printataan lista ilman välimerkkejä
 
         if '*' not in lista: # tsekataan kun lista ei sisällä enää * merkkejä
-            print("Onnittelut! Olet arvannut oikein!")
+            print(f"Onnittelut! Vastaus {valittusana} on oikein")
+            break
         
         valitse = input("Haluatko arvata sanan? k/e: ")
         # jos valitsee k arvataan sana
