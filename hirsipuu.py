@@ -16,6 +16,7 @@ def hirsipuu():
     while True:
 
         arvaa = input("Arvaa kirjain: ")
+        arvaa = arvaa.lower()
         # päivitetään arvattu kirjain listaan
         for index, kirjain in enumerate(valittusana):           
                 if arvaa == kirjain:

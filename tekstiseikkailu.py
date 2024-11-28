@@ -18,6 +18,7 @@ def hirsipuu():
 
         arvaa = input("Arvaa kirjain: ")
         # päivitetään arvattu kirjain listaan
+        arvaa = arvaa.lower() # varmistetaan että kirjain on pieni
         for index, kirjain in enumerate(valittusana):           
                 if arvaa == kirjain:
                     lista[index] = arvaa # korvataan * kirjaimella
