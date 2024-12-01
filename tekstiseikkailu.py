@@ -9,7 +9,10 @@ def hirsipuu():
     valittusana = random.choice(listasanoja)
 
     # lisätään listalle * jokaisen kirjaimen kohdalle
-    lista = ['*'] * len(valittusana)   
+    lista = ['*'] * len(valittusana)
+
+    # lista arvatuista kirjaimista
+    arvatut_kirjaimet = []   
 
     # printataan valitun sanan pituus
     print(f"Sanassa on {len(valittusana)} kirjainta")
@@ -19,11 +22,13 @@ def hirsipuu():
         arvaa = input("Arvaa kirjain: ")
         # päivitetään arvattu kirjain listaan
         arvaa = arvaa.lower() # varmistetaan että kirjain on pieni
+        arvatut_kirjaimet.append(arvaa) # lisätään arvattu kirjain listaan
         for index, kirjain in enumerate(valittusana):           
                 if arvaa == kirjain:
                     lista[index] = arvaa # korvataan * kirjaimella
 
         print("".join(lista)) # printataan lista ilman välimerkkejä
+        print(f"Arvatut kirjaimet: {', '.join(arvatut_kirjaimet)}") # printataan arvatut kirjaimet
 
         if '*' not in lista: # tsekataan kun lista ei sisällä enää * merkkejä
             print(f"Onnittelut! Vastaus {valittusana} on oikein")
