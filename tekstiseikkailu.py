@@ -214,7 +214,7 @@ def weapon_choice(name):
     time.sleep(2)
     return player, weapon
 
-def linnakkeen_salasanatarinankerronta(name):
+def linnakkeen_salasanatarinankerronta():
     print("Koettelemuksesi ovat tuoneet sinut ylös vuoren rinnettä, jossa hirviön linnake sijaitsee.")
     time.sleep(2)
     print("Väsymys koettelee raajojasi, mutta et anna sen hidastaa sinua.")
@@ -310,7 +310,7 @@ def main():
     monster = Character("Hirviö", health=20, damage=2)  # Hirviön luonti
     monster_distance = random.randint(5, 15)  # Hirviön etäisyys
     valinta() # metsä vai rannikko
-    linnakkeen_salasanatarinankerronta(name)  # Linnakkeen salasanan tarinankerronta
+    linnakkeen_salasanatarinankerronta()  # Linnakkeen salasanan tarinankerronta
     linnake_salasana()  # Linnakkeen salasana
     linnakkeen_tarinankerronta(name)  # Linnakkeen tarinankerronta
     battle(player, monster, weapon, monster_distance)  # Aloita taistelu
