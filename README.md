@@ -8,8 +8,8 @@ Tekstiseikkailu käynnistyy ajamalla tiedosto **tekstiseikkailu.py** sen komento
 
 Tekstiseikkailussamme on tarkoitus voittaa hirviö. Matkalla on reittivaihtoehtoja, joiden läpäiseminen auttaa pelin läpäisyssä.
 
-* [Flowchart ensisuunnitelma](flow-ekaversio.png)
-* [Draw.iolla tehty ajantasainen Flowchart](tekstiseikkailu-flowchart.png)
+* [Flowchart ensisuunnitelma (PNG)](flow-ekaversio.png)
+* [Draw.iolla tehty ajantasainen Flowchart (PNG)](tekstiseikkailu-flowchart.png)
 
 ## Pelin suunnittelu
 
@@ -27,3 +27,7 @@ Mietimme, miten peli olisi paras toteuttaa. Jaoimme pelin osia kahden kesken, jo
 
 Olimme kahden vaiheilla, toteuttaako peli erillisillä tiedostoilla, vai funktioilla. Flowchartin suunnittelu näytti, että pelistä tulisi melko laaja, joten jonkinlainen koodin hallinta olisi tärkeää. Myös mahdollista jatkokehitystä varten funktioilla rakennettu koodi kuulosti helpommalta alkuun, kun tiesimme että peli ei venyisi ihan mahdottomuuksiin.
 
+## Pelin videodemo
+
+Peli on demottu videolla, joka löytyy seuraavasta linkistä:
+* [Ohjelmisto_projekti_tekstiseikkailu (video, Youtube.com)](https://www.youtube.com/watch?v=2_bfaFpJ_No)
