@@ -30,4 +30,3 @@ Olimme kahden vaiheilla, toteuttaako peli erillisillä tiedostoilla, vai funktio
 ## Pelin videodemo
 
 Peli on demottu videolla, joka löytyy seuraavasta linkistä:
-* [Ohjelmisto_projekti_tekstiseikkailu (video, Youtube.com)](https://www.youtube.com/watch?v=2_bfaFpJ_No)
