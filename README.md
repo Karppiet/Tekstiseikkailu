@@ -26,7 +26,3 @@ Päädyimme peleistä saatavaan salasanaan, jolla hirviön linnakkeen portti auk
 Mietimme, miten peli olisi paras toteuttaa. Jaoimme pelin osia kahden kesken, jotta molemmille tulisi suurinpiirtein yhtä paljon koodia kehitettäväksi. Lopulta koodia olikin jo yli 300 riviä.
 
 Olimme kahden vaiheilla, toteuttaako peli erillisillä tiedostoilla, vai funktioilla. Flowchartin suunnittelu näytti, että pelistä tulisi melko laaja, joten jonkinlainen koodin hallinta olisi tärkeää. Myös mahdollista jatkokehitystä varten funktioilla rakennettu koodi kuulosti helpommalta alkuun, kun tiesimme että peli ei venyisi ihan mahdottomuuksiin.
-
-## Pelin videodemo
-
-Peli on demottu videolla, joka löytyy seuraavasta linkistä:
